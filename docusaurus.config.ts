@@ -8,7 +8,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
   url: 'https://example.invalid',
   baseUrl: '/',
-  organizationName: 'vmware',
+  organizationName: 'Xinghan',
   projectName: 'vmcphub',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',

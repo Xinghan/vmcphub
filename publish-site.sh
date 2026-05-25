@@ -3,17 +3,23 @@
 # Source stays on `main`; nothing else changes here.
 set -euo pipefail
 
-cd "$(dirname "$0")"
+REPO_ROOT="$(cd "$(dirname "$0")" && pwd)"
+cd "$REPO_ROOT"
 
 echo "→ Building…"
 pnpm build
 
-TMPDIR=$(mktemp -d)
-trap 'git worktree remove "$TMPDIR" --force >/dev/null 2>&1 || true; git branch -D site-publish >/dev/null 2>&1 || true' EXIT
+TMPDIR="$(mktemp -d)"
+cleanup() {
+  cd "$REPO_ROOT"
+  git worktree remove "$TMPDIR" --force >/dev/null 2>&1 || true
+  git branch -D site-publish >/dev/null 2>&1 || true
+}
+trap cleanup EXIT
 
 echo "→ Staging build output on a fresh orphan branch…"
 git worktree add --orphan -b site-publish "$TMPDIR"
-rsync -a --delete build/ "$TMPDIR/"
+rsync -a --delete --exclude .git build/ "$TMPDIR/"
 
 cat > "$TMPDIR/README.md" <<'EOF'
 # vmcphub — built site
@@ -31,8 +37,11 @@ Do not edit files here directly. Source lives on `main`; this branch is
 overwritten by every publish.
 EOF
 
-cd "$TMPDIR"
-git add -A
-git commit -m "build: static site snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)" >/dev/null
-git push --force origin site-publish:site
+(
+  cd "$TMPDIR"
+  git add -A
+  git commit -m "build: static site snapshot $(date -u +%Y-%m-%dT%H:%M:%SZ)" >/dev/null
+  git push --force origin site-publish:site
+)
+
 echo "→ Published to origin/site."

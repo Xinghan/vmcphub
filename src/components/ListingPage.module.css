@@ -1,0 +1,21 @@
+.layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+.header { grid-column: 1 / -1; }
+.header h1 { margin: 0 0 4px; }
+.header p { margin: 0; color: var(--ifm-color-emphasis-700); }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+.empty { padding: 32px; text-align: center; color: var(--ifm-color-emphasis-600); }
+@media (max-width: 768px) {
+  .layout { grid-template-columns: 1fr; }
+}

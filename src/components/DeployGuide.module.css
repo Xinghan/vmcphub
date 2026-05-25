@@ -1,0 +1,11 @@
+.wrapper { display: grid; grid-template-columns: 200px 1fr; gap: 32px; }
+.nav { position: sticky; top: 80px; align-self: start; }
+.nav h4 { margin: 0 0 8px; font-size: 12px; text-transform: uppercase; color: var(--ifm-color-emphasis-700); }
+.nav ol { list-style: none; padding: 0; margin: 0; }
+.nav li { margin: 4px 0; font-size: 14px; }
+.nav a { color: var(--ifm-color-emphasis-800); text-decoration: none; }
+.nav a:hover { color: var(--ifm-color-primary); }
+@media (max-width: 768px) {
+  .wrapper { grid-template-columns: 1fr; }
+  .nav { position: static; }
+}

@@ -1,0 +1,76 @@
+import type { Config } from '@docusaurus/types';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const config: Config = {
+  title: 'vmcphub',
+  tagline: 'MCP Servers & Skills for VMware Private AI Foundation',
+  favicon: 'img/favicon.ico',
+  url: 'https://example.invalid',
+  baseUrl: '/',
+  organizationName: 'vmware',
+  projectName: 'vmcphub',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
+  i18n: { defaultLocale: 'en', locales: ['en'] },
+
+  presets: [
+    [
+      'classic',
+      {
+        docs: false,
+        blog: false,
+        theme: { customCss: './src/css/custom.css' },
+      } satisfies Preset.Options,
+    ],
+  ],
+
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'servers',
+        path: 'servers',
+        routeBasePath: 'servers',
+        sidebarPath: './sidebars.servers.ts',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'skills',
+        path: 'skills',
+        routeBasePath: 'skills',
+        sidebarPath: './sidebars.skills.ts',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'hub-docs',
+        path: 'docs',
+        routeBasePath: 'docs',
+        sidebarPath: false,
+      },
+    ],
+    './src/plugins/entry-manifest',
+  ],
+
+  themeConfig: {
+    navbar: {
+      title: 'vmcphub',
+      items: [
+        { to: '/servers/official', label: 'MCP Servers', position: 'left' },
+        { to: '/skills/official', label: 'Skills', position: 'left' },
+        { to: '/docs/deployment-primer', label: 'Deploy on PAIF', position: 'left' },
+        { to: '/docs/contribution', label: 'Contribute', position: 'right' },
+      ],
+    },
+    footer: {
+      style: 'dark',
+      copyright: `Copyright © ${new Date().getFullYear()} VMware.`,
+    },
+    colorMode: { defaultMode: 'light', respectPrefersColorScheme: true },
+  } satisfies Preset.ThemeConfig,
+};
+
+export default config;

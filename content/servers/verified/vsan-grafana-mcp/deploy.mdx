@@ -1,0 +1,36 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- Network access to the relevant upstream service
+
+<h2 id="container-image">Container / Image</h2>
+
+```yaml
+image: registry.example.com/partner/mcp-vsan-grafana-mcp:0.1.0
+```
+
+<h2 id="secrets">Secrets</h2>
+
+Provision a Kubernetes Secret containing the credentials the upstream service requires.
+
+<h2 id="networking">Networking</h2>
+
+Port 8080 HTTP/SSE; expose via in-cluster Service.
+
+<h2 id="verification">Verification</h2>
+
+```bash
+kubectl exec -it deploy/mcp-vsan-grafana-mcp -- curl -s localhost:8080/healthz
+```
+
+Expected: `{"status":"ok"}`
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+See the upstream README for service-specific failure modes.
+
+</DeployGuide>

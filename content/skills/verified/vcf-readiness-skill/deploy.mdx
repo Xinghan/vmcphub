@@ -10,7 +10,7 @@
 <h2 id="container-image">Container / Image</h2>
 
 ```yaml
-image: registry.example.com/partner/mcp-runecast-partner:0.1.0
+image: registry.example.com/partner/mcp-vcf-readiness-skill:0.1.0
 ```
 
 <h2 id="secrets">Secrets</h2>
@@ -24,7 +24,7 @@ Port 8080 HTTP/SSE; expose via in-cluster Service.
 <h2 id="verification">Verification</h2>
 
 ```bash
-kubectl exec -it deploy/mcp-runecast-partner -- curl -s localhost:8080/healthz
+kubectl exec -it deploy/mcp-vcf-readiness-skill -- curl -s localhost:8080/healthz
 ```
 
 Expected: `{"status":"ok"}`

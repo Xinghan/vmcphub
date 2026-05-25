@@ -65,10 +65,6 @@ export function ListingPage({ catalog, tier }: { catalog: Catalog; tier: Tier })
   return (
     <Layout title={title}>
       <div className={styles.layout}>
-        <header className={styles.header}>
-          <h1>{title}</h1>
-          <p>{visible.length} of {entries.length} {catalog}</p>
-        </header>
         <FilterPanel
           capabilityOptions={capabilityOptions}
           productOptions={productOptions}

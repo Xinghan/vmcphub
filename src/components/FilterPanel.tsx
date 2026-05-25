@@ -29,7 +29,7 @@ export function FilterPanel({ capabilityOptions, productOptions, value, onChange
               checked={value.capability.includes(opt)}
               onChange={() => onChange({ ...value, capability: toggle(value.capability, opt) })}
             />
-            {opt}
+            <span>{opt}</span>
           </label>
         ))}
         {capabilityOptions.length === 0 && <p>No capabilities.</p>}
@@ -43,7 +43,7 @@ export function FilterPanel({ capabilityOptions, productOptions, value, onChange
               checked={value.product.includes(opt)}
               onChange={() => onChange({ ...value, product: toggle(value.product, opt) })}
             />
-            {opt}
+            <span>{opt}</span>
           </label>
         ))}
         {productOptions.length === 0 && <p>No products.</p>}

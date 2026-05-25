@@ -1,8 +1,0 @@
-.hero { padding: 64px 16px; text-align: center; background: var(--ifm-color-emphasis-100); }
-.hero h1 { margin: 0 0 12px; font-size: 40px; }
-.hero p { margin: 0; font-size: 18px; color: var(--ifm-color-emphasis-700); }
-.tiers { max-width: 1100px; margin: 48px auto; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
-.tierCard { padding: 24px; border: 1px solid var(--ifm-color-emphasis-200); border-radius: 8px; }
-.tierCard h2 { margin-top: 0; }
-.tierCard ul { padding-left: 18px; }
-.tierCard a { display: inline-block; margin-top: 12px; }

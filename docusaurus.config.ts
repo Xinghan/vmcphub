@@ -49,9 +49,9 @@ const config: Config = {
       {
         id: 'hub-docs',
         path: 'docs',
-        routeBasePath: 'docs',
-        sidebarPath: false,
-        include: ['*.md', '*.mdx'],
+        routeBasePath: '/',
+        sidebarPath: './sidebars.hub.ts',
+        include: ['**/*.md', '**/*.mdx'],
         exclude: ['superpowers/**'],
       },
     ],
@@ -62,10 +62,12 @@ const config: Config = {
     navbar: {
       title: 'vmcphub',
       items: [
+        { to: '/getting-started/installation', label: 'Get Started', position: 'left' },
         { to: '/servers/official', label: 'MCP Servers', position: 'left' },
         { to: '/skills/official', label: 'Skills', position: 'left' },
-        { to: '/docs/deployment-primer', label: 'Deploy on PAIF', position: 'left' },
-        { to: '/docs/contribution', label: 'Contribute', position: 'right' },
+        { to: '/deployment-primer', label: 'Deploy on PAIF', position: 'left' },
+        { to: '/contribution', label: 'Contribute', position: 'right' },
+        { href: 'https://github.com/Xinghan/vmcphub', label: 'GitHub', position: 'right' },
       ],
     },
     footer: {

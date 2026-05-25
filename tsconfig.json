@@ -10,6 +10,6 @@
       "@site/*": ["./*"]
     }
   },
-  "include": ["src/", "docusaurus.config.ts", "sidebars.servers.ts", "sidebars.skills.ts"],
+  "include": ["src/", "docusaurus.config.ts", "sidebars.servers.ts", "sidebars.skills.ts", "sidebars.hub.ts"],
   "exclude": ["build", ".docusaurus", "node_modules"]
 }

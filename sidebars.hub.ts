@@ -73,7 +73,7 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Deploy on PAIF',
       collapsed: false,
-      items: ['deployment-primer'],
+      items: ['deployment-primer', 'paif-builder'],
     },
     {
       type: 'category',

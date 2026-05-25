@@ -8,7 +8,7 @@ import type { Catalog, Manifest, ManifestEntry } from '../../types/entry';
 const REQUIRED_FILES = ['index.mdx', 'install.mdx', 'deploy.mdx'];
 
 async function scanCatalog(siteDir: string, catalog: Catalog): Promise<ManifestEntry[]> {
-  const root = path.join(siteDir, catalog);
+  const root = path.join(siteDir, 'content', catalog);
   const entries: ManifestEntry[] = [];
   let tierDirs: string[];
   try {

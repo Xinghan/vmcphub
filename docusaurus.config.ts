@@ -29,26 +29,8 @@ const config: Config = {
     [
       '@docusaurus/plugin-content-docs',
       {
-        id: 'servers',
-        path: 'servers',
-        routeBasePath: 'servers',
-        sidebarPath: './sidebars.servers.ts',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'skills',
-        path: 'skills',
-        routeBasePath: 'skills',
-        sidebarPath: './sidebars.skills.ts',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'hub-docs',
-        path: 'docs',
+        id: 'default',
+        path: 'content',
         routeBasePath: '/',
         sidebarPath: './sidebars.hub.ts',
         include: ['**/*.md', '**/*.mdx'],

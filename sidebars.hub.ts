@@ -1,4 +1,62 @@
-import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import type { SidebarsConfig, SidebarItemConfig } from '@docusaurus/plugin-content-docs';
+
+type Tier = 'official' | 'verified' | 'community';
+type Catalog = 'servers' | 'skills';
+
+const TIER_LABEL: Record<Tier, string> = {
+  official: 'Official',
+  verified: 'Verified Partners',
+  community: 'Community',
+};
+
+function scanEntries(catalog: Catalog, tier: Tier): { slug: string; name: string }[] {
+  const dir = path.join(__dirname, 'content', catalog, tier);
+  if (!fs.existsSync(dir)) return [];
+  const slugs = fs
+    .readdirSync(dir, { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((d) => d.name);
+  const entries = slugs.map((slug) => {
+    const fp = path.join(dir, slug, 'index.mdx');
+    const raw = fs.readFileSync(fp, 'utf8');
+    const m = raw.match(/^name:\s*(.+)$/m);
+    return { slug, name: m ? m[1]!.trim() : slug };
+  });
+  entries.sort((a, b) => a.name.localeCompare(b.name));
+  return entries;
+}
+
+function tierCategory(catalog: Catalog, tier: Tier): SidebarItemConfig {
+  const entries = scanEntries(catalog, tier);
+  return {
+    type: 'category',
+    label: TIER_LABEL[tier],
+    collapsed: true,
+    items: [
+      { type: 'doc', id: `${catalog}/${tier}/index`, label: 'Overview' },
+      ...entries.map((e) => ({
+        type: 'doc' as const,
+        id: `${catalog}/${tier}/${e.slug}/index`,
+        label: e.name,
+      })),
+    ],
+  };
+}
+
+function catalogCategory(catalog: Catalog, label: string): SidebarItemConfig {
+  return {
+    type: 'category',
+    label,
+    collapsed: false,
+    items: [
+      tierCategory(catalog, 'official'),
+      tierCategory(catalog, 'verified'),
+      tierCategory(catalog, 'community'),
+    ],
+  };
+}
 
 const sidebars: SidebarsConfig = {
   hubSidebar: [
@@ -9,26 +67,8 @@ const sidebars: SidebarsConfig = {
       collapsed: false,
       items: ['getting-started/installation', 'getting-started/your-first-server'],
     },
-    {
-      type: 'category',
-      label: 'MCP Servers',
-      collapsed: false,
-      items: [
-        { type: 'link', label: 'Official', href: '/servers/official' },
-        { type: 'link', label: 'Verified Partners', href: '/servers/verified' },
-        { type: 'link', label: 'Community', href: '/servers/community' },
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Skills',
-      collapsed: false,
-      items: [
-        { type: 'link', label: 'Official', href: '/skills/official' },
-        { type: 'link', label: 'Verified Partners', href: '/skills/verified' },
-        { type: 'link', label: 'Community', href: '/skills/community' },
-      ],
-    },
+    catalogCategory('servers', 'MCP Servers'),
+    catalogCategory('skills', 'Skills'),
     {
       type: 'category',
       label: 'Deploy on PAIF',
@@ -38,7 +78,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Reference',
-      collapsed: false,
+      collapsed: true,
       items: ['glossary', 'contribution'],
     },
   ],

@@ -11,9 +11,35 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'MCP Servers',
+      collapsed: false,
+      items: [
+        { type: 'link', label: 'Official', href: '/servers/official' },
+        { type: 'link', label: 'Verified Partners', href: '/servers/verified' },
+        { type: 'link', label: 'Community', href: '/servers/community' },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Skills',
+      collapsed: false,
+      items: [
+        { type: 'link', label: 'Official', href: '/skills/official' },
+        { type: 'link', label: 'Verified Partners', href: '/skills/verified' },
+        { type: 'link', label: 'Community', href: '/skills/community' },
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Deploy on PAIF',
+      collapsed: false,
+      items: ['deployment-primer'],
+    },
+    {
+      type: 'category',
       label: 'Reference',
       collapsed: false,
-      items: ['deployment-primer', 'glossary', 'contribution'],
+      items: ['glossary', 'contribution'],
     },
   ],
 };

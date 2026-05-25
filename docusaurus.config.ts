@@ -62,11 +62,6 @@ const config: Config = {
     navbar: {
       title: 'vmcphub',
       items: [
-        { to: '/getting-started/installation', label: 'Get Started', position: 'left' },
-        { to: '/servers/official', label: 'MCP Servers', position: 'left' },
-        { to: '/skills/official', label: 'Skills', position: 'left' },
-        { to: '/deployment-primer', label: 'Deploy on PAIF', position: 'left' },
-        { to: '/contribution', label: 'Contribute', position: 'right' },
         { href: 'https://github.com/Xinghan/vmcphub', label: 'GitHub', position: 'right' },
       ],
     },

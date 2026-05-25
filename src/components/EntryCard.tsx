@@ -10,17 +10,23 @@ export function EntryCard({ entry }: { entry: ManifestEntry }) {
     <Link to={entry.detailUrl} className={styles.card}>
       <div className={styles.header}>
         <img src={entry.icon} alt="" className={styles.icon} />
-        <h3 className={styles.name}>{entry.name}</h3>
+        <div className={styles.titleBlock}>
+          <h3 className={styles.name}>{entry.name}</h3>
+          <div className={styles.maintainer}>by {entry.maintainer}</div>
+        </div>
         <TierBadge tier={entry.tier} />
       </div>
       <p className={styles.description}>{entry.description}</p>
-      <div className={styles.tags}>
-        {entry.capability_tags.map((t) => (
-          <span key={`cap-${t}`} className={styles.tag}>{t}</span>
-        ))}
-        {entry.vmware_products.map((p) => (
-          <span key={`prod-${p}`} className={clsx(styles.tag, styles.productTag)}>{p}</span>
-        ))}
+      <div className={styles.footer}>
+        <div className={styles.tags}>
+          {entry.capability_tags.map((t) => (
+            <span key={`cap-${t}`} className={styles.tag}>{t}</span>
+          ))}
+          {entry.vmware_products.map((p) => (
+            <span key={`prod-${p}`} className={clsx(styles.tag, styles.productTag)}>{p}</span>
+          ))}
+        </div>
+        <span className={styles.cta}>View →</span>
       </div>
     </Link>
   );

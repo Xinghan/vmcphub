@@ -1,13 +1,13 @@
 ---
-title: Deploying on PAIF using PAIF Builder
+title: Using PAIF Builder
 sidebar_label: Using PAIF Builder
 ---
 
-# Deploying on PAIF using PAIF Builder
+# Using PAIF Builder
 
 **PAIF Builder** is the deployment surface inside VMware Private AI Foundation for provisioning ready-made AI workloads — including MCP servers — without writing your own Kubernetes manifests. If you have PAIF 2.x or later, prefer Builder over hand-rolled YAML: it handles image mirroring, secrets, networking, and assistant wiring for you.
 
-This page covers the Builder-driven path. For the manual Kubernetes path, see the per-entry **Deploy** tab on each MCP server and the [deployment primer](/deployment-primer).
+This is the third of the [three deployment paths](/deployment-primer). For the source-code path see [Deploy from source](/deploy/from-source); for the official-container path see [Deploy from Broadcom containers](/deploy/from-broadcom-containers).
 
 ## When to use PAIF Builder vs. the manual path
 

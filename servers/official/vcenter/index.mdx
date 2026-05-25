@@ -1,0 +1,31 @@
+---
+title: vCenter MCP Server
+name: vCenter MCP Server
+tier: official
+type: server
+description: Manage vCenter inventory, VMs, hosts, and clusters through MCP.
+icon: /img/icons/vcenter.svg
+repo_url: https://github.com/vmware/vmcphub-placeholder-vcenter
+maintainer: VMware
+capability_tags: [infrastructure, monitoring]
+vmware_products: [vsphere, vcenter]
+clients_supported: [claude-desktop, cursor, vscode, generic]
+deploy_targets: [vmware-private-ai-foundation]
+last_verified: 2026-05-25
+---
+
+The vCenter MCP Server exposes vSphere inventory, VM lifecycle operations, host
+and cluster status, and read-only performance counters as MCP tools and
+resources. Use it to let an AI assistant answer questions about your vSphere
+estate or perform routine VM operations under tight permission scopes.
+
+## Prerequisites
+
+- vCenter 7.0 Update 3 or later
+- A service account with the minimum role described in the repo README
+- Network reachability from the MCP client (or PAIF runtime) to vCenter on 443
+
+## Links
+
+- Repository: [vmcphub-placeholder-vcenter](https://github.com/vmware/vmcphub-placeholder-vcenter)
+- Issue tracker: see repository

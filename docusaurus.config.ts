@@ -1,3 +1,4 @@
+import * as path from 'node:path';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
@@ -50,9 +51,11 @@ const config: Config = {
         path: 'docs',
         routeBasePath: 'docs',
         sidebarPath: false,
+        include: ['*.md', '*.mdx'],
+        exclude: ['superpowers/**'],
       },
     ],
-    './src/plugins/entry-manifest',
+    path.resolve(__dirname, 'src/plugins/entry-manifest'),
   ],
 
   themeConfig: {

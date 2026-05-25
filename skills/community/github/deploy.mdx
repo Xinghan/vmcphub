@@ -1,0 +1,31 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- A GitHub MCP server (community) reachable from the assistant
+- A GitHub PAT for the user or app you want the assistant to act as
+
+<h2 id="container-image">Container / Image</h2>
+
+Not applicable — skill bundle distributed as ConfigMap.
+
+<h2 id="secrets">Secrets</h2>
+
+The GitHub PAT lives in the companion MCP server's secret, not the skill itself.
+
+<h2 id="networking">Networking</h2>
+
+No network listeners (skill bundle).
+
+<h2 id="verification">Verification</h2>
+
+Invoke the skill in PAIF chat and ask "summarize the latest PRs in this repo".
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **403 from GitHub** — the companion MCP server's PAT needs `repo` scope; org-restricted PATs need org approval.
+
+</DeployGuide>

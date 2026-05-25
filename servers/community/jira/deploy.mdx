@@ -1,0 +1,44 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- Outbound HTTPS to your Jira Cloud or Data Center instance
+- A Jira API token (Cloud) or PAT (DC)
+
+<h2 id="container-image">Container / Image</h2>
+
+```yaml
+image: registry.example.com/community/mcp-jira:0.3.0
+```
+
+<h2 id="secrets">Secrets</h2>
+
+```bash
+kubectl create secret generic mcp-jira \
+  --from-literal=JIRA_BASE_URL=https://example.atlassian.net \
+  --from-literal=JIRA_API_TOKEN=...
+```
+
+<h2 id="networking">Networking</h2>
+
+If your PAIF cluster egresses through a proxy, set `HTTPS_PROXY` and
+`NO_PROXY` on the Deployment so MCP traffic stays inside the cluster while
+Jira requests use the proxy.
+
+<h2 id="verification">Verification</h2>
+
+```bash
+kubectl exec -it deploy/mcp-jira -- curl -s localhost:8080/healthz
+```
+
+Expected: `{"status":"ok"}`
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **401 from Jira Cloud** — verify the token is scoped to the project you query.
+- **JQL parse errors** — escape reserved characters in issue keys when used in `summary ~ "..."`.
+
+</DeployGuide>

@@ -1,0 +1,42 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- NSX 4.x manager reachable from the cluster on 443
+- A read-only NSX user; add write scope only if needed
+
+<h2 id="container-image">Container / Image</h2>
+
+```yaml
+image: registry.example.com/vmware/mcp-nsx:0.1.0
+```
+
+<h2 id="secrets">Secrets</h2>
+
+```bash
+kubectl create secret generic mcp-nsx \
+  --from-literal=NSX_MANAGER_HOST=nsx.example.com \
+  --from-literal=NSX_USERNAME=svc-mcp \
+  --from-literal=NSX_PASSWORD=...
+```
+
+<h2 id="networking">Networking</h2>
+
+Port 8080 HTTP/SSE; expose via in-cluster Service.
+
+<h2 id="verification">Verification</h2>
+
+```bash
+kubectl exec -it deploy/mcp-nsx -- curl -s localhost:8080/healthz
+```
+
+Expected: `{"status":"ok"}`
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **403 on policy reads** — the service account needs the NSX `auditor` role at minimum.
+
+</DeployGuide>

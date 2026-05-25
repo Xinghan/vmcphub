@@ -1,0 +1,46 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- A namespace with a service account that has pull access to your image registry
+- Network policy allowing egress to your vCenter on 443
+
+<h2 id="container-image">Container / Image</h2>
+
+```yaml
+image: registry.example.com/vmware/mcp-vcenter:0.1.0
+```
+
+<h2 id="secrets">Secrets</h2>
+
+Create a Kubernetes secret containing the vCenter service account credentials:
+
+```bash
+kubectl create secret generic mcp-vcenter \
+  --from-literal=VCENTER_HOST=vcsa.example.com \
+  --from-literal=VCENTER_USERNAME=svc-mcp@vsphere.local \
+  --from-literal=VCENTER_PASSWORD=...
+```
+
+<h2 id="networking">Networking</h2>
+
+The MCP server listens on port 8080 (HTTP/SSE). Expose it via a ClusterIP
+Service; let your PAIF assistant reach it via in-cluster DNS.
+
+<h2 id="verification">Verification</h2>
+
+```bash
+kubectl exec -it deploy/mcp-vcenter -- curl -s localhost:8080/healthz
+```
+
+Expected: `{"status":"ok"}`
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **401 from vCenter** — confirm the service account is enabled and not locked.
+- **TLS errors** — set `VCENTER_INSECURE_TLS=true` only in lab environments.
+
+</DeployGuide>

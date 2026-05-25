@@ -11,7 +11,6 @@ export type SupportedClient =
 export type DeployTarget = 'vmware-private-ai-foundation';
 
 export interface EntryFrontmatter {
-  slug: string;
   name: string;
   tier: Tier;
   type: EntryType;
@@ -27,6 +26,7 @@ export interface EntryFrontmatter {
 }
 
 export interface ManifestEntry extends EntryFrontmatter {
+  slug: string;
   catalog: Catalog;
   detailUrl: string;
 }

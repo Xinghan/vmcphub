@@ -1,0 +1,31 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- A Slack MCP server (community) reachable from the assistant
+- Slack bot/user token with the channels you want to summarize
+
+<h2 id="container-image">Container / Image</h2>
+
+Not applicable — skill bundle.
+
+<h2 id="secrets">Secrets</h2>
+
+The Slack token lives in the companion MCP server's secret, not the skill.
+
+<h2 id="networking">Networking</h2>
+
+No network listeners (skill bundle).
+
+<h2 id="verification">Verification</h2>
+
+Invoke the skill in PAIF chat and ask it to summarize the last 24 hours of `#general`.
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **`not_in_channel`** — invite the bot user to the channel; user tokens skip this restriction.
+
+</DeployGuide>

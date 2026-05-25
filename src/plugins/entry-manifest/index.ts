@@ -62,14 +62,10 @@ async function scanCatalog(siteDir: string, catalog: Catalog): Promise<ManifestE
           `vmcphub: type mismatch in ${catalog}/${tier}/${slug}/index.mdx — expected "${expectedType}", got "${parsed.data.type}"`,
         );
       }
-      if (parsed.data.slug !== slug) {
-        throw new Error(
-          `vmcphub: slug mismatch in ${catalog}/${tier}/${slug}/index.mdx — frontmatter slug "${parsed.data.slug}" must equal directory name "${slug}"`,
-        );
-      }
 
       entries.push({
         ...parsed.data,
+        slug,
         catalog,
         detailUrl: `/${catalog}/${tier}/${slug}`,
       });

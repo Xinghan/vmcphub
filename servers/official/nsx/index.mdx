@@ -1,0 +1,19 @@
+---
+title: NSX MCP Server
+name: NSX MCP Server
+tier: official
+type: server
+description: Inspect and modify NSX segments, gateways, and security policies via MCP.
+icon: /img/icons/nsx.svg
+repo_url: https://github.com/vmware/vmcphub-placeholder-nsx
+maintainer: VMware
+capability_tags: [infrastructure, security]
+vmware_products: [nsx]
+clients_supported: [claude-desktop, cursor, vscode, generic]
+deploy_targets: [vmware-private-ai-foundation]
+last_verified: 2026-05-25
+---
+
+The NSX MCP Server exposes NSX segments, T0/T1 gateways, security groups, and
+distributed firewall rules as MCP tools. It is designed for read-heavy
+assistant workflows — write operations require an additional scope flag.

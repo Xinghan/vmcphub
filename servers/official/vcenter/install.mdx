@@ -1,0 +1,13 @@
+# Install — vCenter MCP Server
+
+<InstallSnippets
+  clients={['claude-desktop', 'cursor', 'vscode', 'generic']}
+  entry={{ slug: 'vcenter', name: 'vCenter MCP Server', repo_url: 'https://github.com/vmware/vmcphub-placeholder-vcenter' }}
+/>
+
+After pasting the snippet into your client's MCP config, set the following
+environment variables (or use a `.env` file in your MCP runtime):
+
+- `VCENTER_HOST` — e.g. `vcsa.example.com`
+- `VCENTER_USERNAME` — service account UPN
+- `VCENTER_PASSWORD` — service account password

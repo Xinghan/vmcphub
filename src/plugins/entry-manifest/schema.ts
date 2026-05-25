@@ -11,7 +11,6 @@ export const SupportedClientSchema = z.enum([
 export const DeployTargetSchema = z.enum(['vmware-private-ai-foundation']);
 
 export const EntryFrontmatterSchema = z.object({
-  slug: z.string().regex(/^[a-z0-9-]+$/, 'slug must be kebab-case'),
   name: z.string().min(1),
   tier: TierSchema,
   type: EntryTypeSchema,
@@ -23,7 +22,10 @@ export const EntryFrontmatterSchema = z.object({
   vmware_products: z.array(z.string().min(1)).default([]),
   clients_supported: z.array(SupportedClientSchema).min(1),
   deploy_targets: z.array(DeployTargetSchema).min(1),
-  last_verified: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'must be ISO date YYYY-MM-DD'),
+  last_verified: z
+    .union([z.string(), z.date()])
+    .transform((v) => (v instanceof Date ? v.toISOString().slice(0, 10) : v))
+    .refine((s) => /^\d{4}-\d{2}-\d{2}$/.test(s), 'must be ISO date YYYY-MM-DD'),
 });
 
 export type ParsedFrontmatter = z.infer<typeof EntryFrontmatterSchema>;

@@ -1,0 +1,32 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- A vCenter MCP Server already deployed in the same namespace
+
+<h2 id="container-image">Container / Image</h2>
+
+Not applicable — this skill ships as a bundle (Markdown + YAML manifests). Distribute via a ConfigMap or OCI artifact.
+
+<h2 id="secrets">Secrets</h2>
+
+No skill-specific secrets. The skill consumes the secrets configured for the
+companion vCenter MCP Server.
+
+<h2 id="networking">Networking</h2>
+
+No network listeners; the skill is loaded into the assistant runtime.
+
+<h2 id="verification">Verification</h2>
+
+In a PAIF chat, invoke `/skills/vsphere-troubleshooting` and verify the
+runbook table-of-contents prints.
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **Skill not discovered** — confirm the ConfigMap is mounted at the path the assistant scans (`/etc/paif/skills/`).
+
+</DeployGuide>

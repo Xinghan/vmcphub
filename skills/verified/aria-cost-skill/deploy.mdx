@@ -1,0 +1,30 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- Aria Ops Partner MCP server deployed in the same namespace
+
+<h2 id="container-image">Container / Image</h2>
+
+Not applicable — distributed as a ConfigMap bundle.
+
+<h2 id="secrets">Secrets</h2>
+
+No skill-specific secrets.
+
+<h2 id="networking">Networking</h2>
+
+No network listeners.
+
+<h2 id="verification">Verification</h2>
+
+Invoke the skill in PAIF chat and confirm the cost-analysis prompt template renders.
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **Numbers do not reconcile to Aria UI** — the skill uses month-to-date aggregations; switch to "billing period" mode for exact reconciliation.
+
+</DeployGuide>

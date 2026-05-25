@@ -1,0 +1,41 @@
+# Deploy on VMware Private AI Foundation
+
+<DeployGuide>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+- VMware Private AI Foundation 2.x cluster
+- A Tanzu Observability service account API token
+- Egress to your Tanzu Observability URL
+
+<h2 id="container-image">Container / Image</h2>
+
+```yaml
+image: registry.example.com/partner/mcp-tanzu-observability:0.2.0
+```
+
+<h2 id="secrets">Secrets</h2>
+
+```bash
+kubectl create secret generic mcp-tanzu-observability \
+  --from-literal=TANZU_OBS_URL=https://your-instance.wavefront.com \
+  --from-literal=TANZU_OBS_TOKEN=...
+```
+
+<h2 id="networking">Networking</h2>
+
+Port 8080 HTTP/SSE; expose via in-cluster Service.
+
+<h2 id="verification">Verification</h2>
+
+```bash
+kubectl exec -it deploy/mcp-tanzu-observability -- curl -s localhost:8080/healthz
+```
+
+Expected: `{"status":"ok"}`
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+- **429 from Tanzu Observability** — token has hit per-second query limits; reduce dashboard auto-refresh frequency.
+
+</DeployGuide>

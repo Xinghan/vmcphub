@@ -1,10 +1,11 @@
 ---
-title: Welcome to vmcphub
+title: Welcome to Open Source MCP Servers / Skills for PAIF
+sidebar_label: Welcome
 sidebar_position: 1
 slug: /
 ---
 
-# Welcome to vmcphub
+# Welcome to Open Source MCP Servers / Skills for PAIF
 
 **vmcphub** is a curated catalog of [Model Context Protocol (MCP)](https://modelcontextprotocol.io) servers and skills for users of **VMware Private AI Foundation (PAIF)**. It is to MCP on VMware what `awslabs/mcp` is to MCP on AWS — a single place to discover trusted integrations and learn how to deploy them on your private AI stack.
 

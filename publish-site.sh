@@ -13,9 +13,14 @@ TMPDIR="$(mktemp -d)"
 cleanup() {
   cd "$REPO_ROOT"
   git worktree remove "$TMPDIR" --force >/dev/null 2>&1 || true
+  git worktree prune >/dev/null 2>&1 || true
   git branch -D site-publish >/dev/null 2>&1 || true
 }
 trap cleanup EXIT
+
+# Clean up any leftovers from a previously interrupted run before starting.
+git worktree prune >/dev/null 2>&1 || true
+git branch -D site-publish >/dev/null 2>&1 || true
 
 echo "→ Staging build output on a fresh orphan branch…"
 git worktree add --orphan -b site-publish "$TMPDIR"

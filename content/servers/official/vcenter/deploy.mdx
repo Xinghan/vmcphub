@@ -1,10 +1,10 @@
-# Deploy on VMware Private AI Foundation
+# Deploy on VMware Cloud Foundation
 
 <DeployGuide>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-- VMware Private AI Foundation 2.x cluster
+- VMware Cloud Foundation 2.x cluster
 - A namespace with a service account that has pull access to your image registry
 - Network policy allowing egress to your vCenter on 443
 
@@ -28,7 +28,7 @@ kubectl create secret generic mcp-vcenter \
 <h2 id="networking">Networking</h2>
 
 The MCP server listens on port 8080 (HTTP/SSE). Expose it via a ClusterIP
-Service; let your PAIF assistant reach it via in-cluster DNS.
+Service; let your VCF assistant reach it via in-cluster DNS.
 
 <h2 id="verification">Verification</h2>
 

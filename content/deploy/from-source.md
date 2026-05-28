@@ -11,13 +11,13 @@ This path is for teams who want full control — build the image from upstream s
 - You need to **fork or patch the upstream** before deploying.
 - Your org requires that every image be **rebuilt from source and signed in-house**.
 
-If neither of those applies, prefer the [Broadcom official container path](/deploy/from-broadcom-containers) (less ops work) or [PAIF Builder](/deploy/paif-builder) (zero ops work).
+If neither of those applies, prefer the [Broadcom official container path](/deploy/from-broadcom-containers) (less ops work) or [VCF Builder](/deploy/vcf-builder) (zero ops work).
 
 ## Prerequisites
 
-- Cluster prerequisites from the [Deploy on PAIF overview](/deployment-primer).
+- Cluster prerequisites from the [Deploy on VCF overview](/deployment-primer).
 - A build host with Docker / Podman / Buildah.
-- A registry the PAIF cluster can pull from.
+- A registry the VCF cluster can pull from.
 
 ## Steps
 
@@ -126,4 +126,4 @@ Roll back with `kubectl rollout undo deploy/mcp-vcenter` if the new image misbeh
 - **No managed secret rotation** — you own the lifecycle of the Secret you created in step 3.
 - **No assistant auto-wiring** — you hand-edit the MCP client config.
 
-For any of those, drop to the [Broadcom container path](/deploy/from-broadcom-containers) or [PAIF Builder](/deploy/paif-builder).
+For any of those, drop to the [Broadcom container path](/deploy/from-broadcom-containers) or [VCF Builder](/deploy/vcf-builder).

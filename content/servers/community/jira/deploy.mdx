@@ -1,10 +1,10 @@
-# Deploy on VMware Private AI Foundation
+# Deploy on VMware Cloud Foundation
 
 <DeployGuide>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-- VMware Private AI Foundation 2.x cluster
+- VMware Cloud Foundation 2.x cluster
 - Outbound HTTPS to your Jira Cloud or Data Center instance
 - A Jira API token (Cloud) or PAT (DC)
 
@@ -24,7 +24,7 @@ kubectl create secret generic mcp-jira \
 
 <h2 id="networking">Networking</h2>
 
-If your PAIF cluster egresses through a proxy, set `HTTPS_PROXY` and
+If your VCF cluster egresses through a proxy, set `HTTPS_PROXY` and
 `NO_PROXY` on the Deployment so MCP traffic stays inside the cluster while
 Jira requests use the proxy.
 

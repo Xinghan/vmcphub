@@ -6,7 +6,7 @@ title: Contributing
 
 vmcphub is currently maintained by the VMware team. To propose a new entry,
 open an issue describing the MCP server or skill, its trust tier, and its
-relevance to VMware Private AI Foundation users.
+relevance to VMware Cloud Foundation users.
 
 ## Entry structure
 

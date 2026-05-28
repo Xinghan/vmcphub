@@ -71,13 +71,13 @@ const sidebars: SidebarsConfig = {
     catalogCategory('skills', 'Skills'),
     {
       type: 'category',
-      label: 'Deploy on PAIF',
+      label: 'Deploy on VCF',
       collapsed: false,
       items: [
         'deployment-primer',
         'deploy/from-source',
         'deploy/from-broadcom-containers',
-        'deploy/paif-builder',
+        'deploy/vcf-builder',
       ],
     },
     {

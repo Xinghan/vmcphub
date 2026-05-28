@@ -1,10 +1,10 @@
-# Deploy on VMware Private AI Foundation
+# Deploy on VMware Cloud Foundation
 
 <DeployGuide>
 
 <h2 id="prerequisites">Prerequisites</h2>
 
-- VMware Private AI Foundation 2.x cluster
+- VMware Cloud Foundation 2.x cluster
 - A vCenter MCP Server already deployed in the same namespace
 
 <h2 id="container-image">Container / Image</h2>
@@ -22,11 +22,11 @@ No network listeners; the skill is loaded into the assistant runtime.
 
 <h2 id="verification">Verification</h2>
 
-In a PAIF chat, invoke `/skills/vsphere-troubleshooting` and verify the
+In a VCF chat, invoke `/skills/vsphere-troubleshooting` and verify the
 runbook table-of-contents prints.
 
 <h2 id="troubleshooting">Troubleshooting</h2>
 
-- **Skill not discovered** — confirm the ConfigMap is mounted at the path the assistant scans (`/etc/paif/skills/`).
+- **Skill not discovered** — confirm the ConfigMap is mounted at the path the assistant scans (`/etc/vcf/skills/`).
 
 </DeployGuide>

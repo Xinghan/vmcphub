@@ -1,15 +1,15 @@
 ---
-title: Welcome to Open Source MCP Servers / Skills for PAIF
+title: Welcome to Open Source MCP Servers / Skills for VCF
 sidebar_label: Welcome
 sidebar_position: 1
 slug: /
 ---
 
-# Welcome to Open Source MCP Servers / Skills for PAIF
+# Welcome to Open Source MCP Servers / Skills for VCF
 
 The [Model Context Protocol (MCP)](https://modelcontextprotocol.io) is an open protocol that enables seamless integration between LLM applications and external data sources and tools.
 
-An MCP server exposes capabilities through this standardized protocol. Host applications — chatbots, IDEs, and AI tools — maintain connections with MCP servers. Common MCP clients include coding assistants like Cursor, Cline, and VS Code, plus Claude Desktop and the agents you build on **VMware Private AI Foundation (PAIF)**. These servers access local and remote data to provide context that improves model outputs.
+An MCP server exposes capabilities through this standardized protocol. Host applications — chatbots, IDEs, and AI tools — maintain connections with MCP servers. Common MCP clients include coding assistants like Cursor, Cline, and VS Code, plus Claude Desktop and the agents you build on **VMware Cloud Foundation (VCF)**. These servers access local and remote data to provide context that improves model outputs.
 
 **MCP servers and skills for VMware Cloud Foundation (VCF)** grant AI applications access to VCF products — vCenter, NSX, vSAN, and more — along with the documentation, guidance, and best practices for operating them, making AI-assisted private-cloud operations more accessible and efficient.
 
@@ -35,7 +35,7 @@ Every server and skill in the catalog is sorted into one of three trust tiers:
 
 - **Official** — authored and maintained by VMware for core VCF products.
 - **Verified Partners** — third-party, mostly open-source MCP servers and skills that target VCF products (vCenter, NSX, vSAN, VMware Cloud Foundation), reviewed and verified by VMware against a recent product release.
-- **Community** — popular community-maintained tools (GitHub, Slack, Postgres, Datadog, and more) with VMware-supplied PAIF deployment guidance.
+- **Community** — popular community-maintained tools (GitHub, Slack, Postgres, Datadog, and more) with VMware-supplied VCF deployment guidance.
 
 ## Catalog at a glance
 
@@ -51,15 +51,15 @@ Every server and skill in the catalog is sorted into one of three trust tiers:
 - Keeping sensitive data and credentials on your workstation.
 - Minimal network latency and direct resource control.
 
-**On-cluster (PAIF) MCP servers** excel for:
+**On-cluster (VCF) MCP servers** excel for:
 
 - Team collaboration with consistent configurations.
 - Resource-intensive tasks offloaded to the cluster.
-- Always-available access from any assistant on PAIF.
+- Always-available access from any assistant on VCF.
 - Centralized security controls with namespace-scoped service accounts and Kubernetes Secrets.
 - Comprehensive audit logging and compliance monitoring for enterprise-grade governance.
 
-For the on-cluster path, see the three [deployment options on PAIF](/deployment-primer).
+For the on-cluster path, see the three [deployment options on VCF](/deployment-primer).
 
 ## Workflow types
 
@@ -78,6 +78,6 @@ Each server and skill targets specific use cases:
 
 ## Next steps
 
-1. **[Installation](./getting-started/installation.md)** — set up an MCP client and confirm it can reach your PAIF cluster.
-2. **[Your first MCP server on PAIF](./getting-started/your-first-server.md)** — a walkthrough that deploys the vCenter MCP Server end-to-end.
+1. **[Installation](./getting-started/installation.md)** — set up an MCP client and confirm it can reach your VCF cluster.
+2. **[Your first MCP server on VCF](./getting-started/your-first-server.md)** — a walkthrough that deploys the vCenter MCP Server end-to-end.
 3. **Browse the catalog** — [MCP Servers](/servers/official) or [Skills](/skills/official).

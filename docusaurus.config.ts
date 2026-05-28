@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'vmcphub',
-  tagline: 'MCP Servers & Skills for VMware Private AI Foundation',
+  tagline: 'MCP Servers & Skills for VMware Cloud Foundation',
   favicon: 'img/favicon.ico',
   url: 'https://example.invalid',
   baseUrl: '/',

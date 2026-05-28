@@ -1,11 +1,11 @@
 ---
-title: Your first MCP server on PAIF
+title: Your first MCP server on VCF
 sidebar_position: 2
 ---
 
-# Your first MCP server on PAIF
+# Your first MCP server on VCF
 
-This walkthrough deploys the [vCenter MCP Server](/servers/official/vcenter) on VMware Private AI Foundation and connects an MCP client to it. The same shape applies to every other server in the catalog — the only differences are the image, the secret keys, and the upstream port.
+This walkthrough deploys the [vCenter MCP Server](/servers/official/vcenter) on VMware Cloud Foundation and connects an MCP client to it. The same shape applies to every other server in the catalog — the only differences are the image, the secret keys, and the upstream port.
 
 ## Step 1 — Pick a server
 
@@ -15,7 +15,7 @@ Each entry has three tabs:
 
 - **Overview** — what it does and prerequisites
 - **Install** — copy-to-clipboard config for popular MCP clients (for local runs)
-- **Deploy** — step-by-step Kubernetes deployment on PAIF
+- **Deploy** — step-by-step Kubernetes deployment on VCF
 
 ## Step 2 — Create the namespace and secret
 
@@ -73,7 +73,7 @@ Expected: `{"status":"ok"}`
 
 ## Step 5 — Wire it to your MCP client
 
-For a PAIF-hosted assistant, point its MCP client config at the in-cluster Service URL:
+For a VCF-hosted assistant, point its MCP client config at the in-cluster Service URL:
 
 ```json
 {
@@ -90,4 +90,4 @@ Restart the assistant. You should now be able to ask "list the VMs in cluster X"
 
 ## Troubleshooting
 
-See the **Troubleshooting** section of each entry's **Deploy** tab for entry-specific tips. For shared patterns (proxies, image pulls, RBAC) see [Deploying MCP on PAIF](/deployment-primer).
+See the **Troubleshooting** section of each entry's **Deploy** tab for entry-specific tips. For shared patterns (proxies, image pulls, RBAC) see [Deploying MCP on VCF](/deployment-primer).

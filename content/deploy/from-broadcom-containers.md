@@ -11,7 +11,7 @@ Broadcom publishes signed, official container images for every **Official-tier**
 - You're already running Kubernetes manifests in your own GitOps pipeline and want MCP to fit in.
 - You need to be on a **specific image version** for compliance, but don't need to fork the upstream code.
 
-If you don't need to own the manifests, the [PAIF Builder path](/deploy/paif-builder) is faster. If the server you want isn't on Broadcom's registry yet (most Community-tier servers), drop to the [from-source path](/deploy/from-source).
+If you don't need to own the manifests, the [VCF Builder path](/deploy/vcf-builder) is faster. If the server you want isn't on Broadcom's registry yet (most Community-tier servers), drop to the [from-source path](/deploy/from-source).
 
 ## Where the images live
 
@@ -31,8 +31,8 @@ For air-gapped sites, mirror the image into your internal registry first using `
 
 ## Prerequisites
 
-- Cluster prerequisites from the [Deploy on PAIF overview](/deployment-primer).
-- Network access to `registry.broadcom.com` from your PAIF cluster (or an in-house mirror — see appendix).
+- Cluster prerequisites from the [Deploy on VCF overview](/deployment-primer).
+- Network access to `registry.broadcom.com` from your VCF cluster (or an in-house mirror — see appendix).
 - (Optional but recommended) `cosign` installed locally for image signature verification.
 
 ## Steps
@@ -108,7 +108,7 @@ Because Broadcom-published images are versioned semantically, you can pin to a m
 
 ## Air-gapped mirror
 
-For PAIF clusters without internet egress:
+For VCF clusters without internet egress:
 
 ```bash
 # On a host that CAN reach both registries:
@@ -127,4 +127,4 @@ oras copy \
 - **You still own the manifests, secrets, and upgrades.** Broadcom only owns the image.
 - **No assistant auto-wiring** — you hand-edit the MCP client config (or wrap it in your own Helm/Argo chart).
 
-If you want any of that managed for you, the [PAIF Builder path](/deploy/paif-builder) takes those concerns off your plate.
+If you want any of that managed for you, the [VCF Builder path](/deploy/vcf-builder) takes those concerns off your plate.
